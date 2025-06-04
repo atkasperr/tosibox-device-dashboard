@@ -1,0 +1,35 @@
+<div class="howto-section" style="max-width:700px;margin:32px auto;font-family:sans-serif;">
+  <h2>How To Use the Device Dashboard</h2>
+  <ol style="line-height:1.7;">
+    <li>
+      <strong>Log into your Tosibox Key and connect to <u>ONE</u> Tosibox key.</strong>
+      <div style="margin:8px 0 16px 0;">
+        <span style="color:#555;">Open the Tosibox application and ensure you are connected to only one key at a time. This ensures the dashboard can properly detect available devices.</span><br>
+        <em>Example Tosibox dashboard:</em><br>
+        <img src="images/tosibox_dashboard.png" alt="Tosibox Dashboard" style="max-width:400px; border:1px solid #ccc; margin-top:8px;">
+      </div>
+    </li>
+    <li>
+      <strong>Go to the dashboard website.</strong>
+      <div style="margin:8px 0 16px 0;">
+        <span style="color:#555;">Once connected, open this dashboard in your browser. You will see a list of devices grouped by lane.</span><br>
+        <em>Click on any <b>device name</b> to open that device’s web interface in a new tab.</em><br>
+      </div>
+    </li>
+    <li>
+      <strong>If devices are missing (but visible in Tosibox), update <code>DATA/device_map.json</code>.</strong>
+      <div style="margin:8px 0 16px 0;">
+        <span style="color:#555;">If you see a device in Tosibox but not on the dashboard, you need to add it to the <code>device_map.json</code> file.</span><br>
+        <ul>
+          <li>Open <code>DATA/device_map.json</code> in a text editor.</li>
+          <li>Add a new entry for the device using the same structure as the other devices.</li>
+        </ul>
+        <em>Example JSON structure:</em><br>
+        <img src="images/device_map_json.png" alt="device_map.json Example" style="max-width:400px; border:1px solid #ccc; margin-top:8px;">
+      </div>
+    </li>
+  </ol>
+  <div style="margin-top:24px;">
+    <b>Questions or suggestions?</b> Please open an issue or pull request on the project's repository.
+  </div>
+</div>

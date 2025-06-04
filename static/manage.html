@@ -1,0 +1,114 @@
+<div id="manage-section">
+  <form id="addDeviceForm">
+  <div id="disclaimer-box" style="max-width:600px;margin:24px auto 16px auto;text-align:center;">
+    <span style="display:inline-block;color:#b71c1c;font-weight:bold;font-size:1.1rem;">
+        This is a work in progress. To see changes to the JSON PUT and DELETE, restart the server. 
+    </span>
+  </div>
+
+
+
+    <input type="text" id="deviceIp" placeholder="Device IP" required>
+    <input type="text" id="deviceName" placeholder="Device Name" required>
+    <select id="deviceLane" required>
+      <option value="">Select Lane</option>
+      <option value="1&2">1&2</option>
+      <option value="3&4">3&4</option>
+    </select>
+    <button type="submit">Add Device</button>
+  </form>
+
+  <h3 style="margin-top:32px;">Current Devices</h3>
+  <table id="deviceTable" style="width:100%;margin-top:8px;">
+    <thead>
+      <tr>
+        <th>IP</th>
+        <th>Name</th>
+        <th>Lane</th>
+        <th>Status</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#manage-section {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  padding: 12px 0;
+  position: relative;
+  width: 100%;
+  background: #ffcc00
+}
+#addDeviceForm {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 18px 24px;
+  max-width: 400px;
+  margin: 32px auto 24px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#addDeviceForm input[type="text"], #addDeviceForm select {
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+#addDeviceForm button {
+  background: #ffcc00;
+  color: #222;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#addDeviceForm button:hover {
+  background: #ffb300;
+}
+#deviceTable {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+#deviceTable th, #deviceTable td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  text-align: left;
+}
+.remove-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+.remove-btn:hover {
+  background: #c0392b;
+}
+</style>

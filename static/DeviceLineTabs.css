@@ -1,0 +1,157 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+/* TosiBox theme: blue/gray/white, no FANUC yellow */
+header, footer {
+  background: #1a2233; /* TosiBox dark blue */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #009fe3; /* TosiBox blue */
+}
+footer {
+  border-top: 3px solid #009fe3;
+  border-bottom: none;
+  margin-top: 40px;
+}
+.device-tabs-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 32px 24px 24px 24px;
+  border: 2px solid #009fe3;
+}
+h2 {
+  margin-top: 0;
+  color: #1a2233;
+  letter-spacing: 1px;
+}
+.device-tabs-header {
+  display: flex;
+  border-bottom: 3px solid #009fe3;
+  margin-bottom: 16px;
+  background: #fff;
+  padding-left: 8px;
+}
+
+.device-tab-btn {
+  padding: 12px 28px;
+  border: 2px solid #009fe3;
+  border-bottom: none;
+  background: #fff;
+  color: #009fe3;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 8px 8px 0 0;
+  margin-right: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  top: 3px;
+  z-index: 1;
+}
+
+.device-tab-btn.active,
+.device-tab-btn:hover {
+  background: #009fe3;
+  color: #fff;
+  z-index: 2;
+  border-bottom: 3px solid #fff;
+}
+.device-tabs-content {
+  padding: 0;
+  background: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  background: #fafbfc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+th, td {
+  padding: 12px 8px;
+  text-align: left;
+}
+th {
+  background: #009fe3;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+tr:nth-child(even) {
+  background: #f7f7f7;
+}
+.device-status-online {
+  color: #009900;
+  font-weight: bold;
+}
+.device-status-offline {
+  color: #d90429;
+  font-weight: bold;
+}
+a.device-link {
+  color: #009fe3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: text-decoration 0.2s, color 0.2s;
+}
+a.device-link:hover {
+  text-decoration: underline;
+  color: #1a2233;
+}
+@media (max-width: 600px) {
+  .device-tabs-container {
+    padding: 12px 4px;
+  }
+  th, td {
+    padding: 8px 2px;
+  }
+}
+header.asg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a2233;
+  color: #fff;
+  padding: 20px 32px;
+  border-bottom: 3px solid #009fe3;
+  min-height: 110px;
+}
+.asg-header-left,
+.asg-header-right {
+  flex: 0 0 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.asg-header-center {
+  flex: 1 1 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.asg-header-center h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+.asg-logo {
+  height: 110px;
+  width: auto;
+  vertical-align: middle;
+  display: block;
+  margin: 0 auto;
+}

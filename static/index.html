@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Device Dashboard</title>
+  <link rel="stylesheet" href="DeviceLineTabs.css?v=20240520">
+</head>
+<body>
+<header class="asg-header">
+  <div class="asg-header-left">
+    
+  </div>
+  <div class="asg-header-center">
+    <h1>TOSIBOX Device Dashboard</h1>
+  </div>
+  <div class="asg-header-right">
+   
+  </div>
+</header>
+  <div class="device-tabs-container">
+    <h2>Devices by Section</h2>
+    <div class="device-tabs-header" id="laneTabs"></div>
+    <div class="device-tabs-content" id="laneContent"></div>
+    <!-- Add Manage Devices section container (hidden by default) -->
+    <div class="device-tabs-content" id="manageContent" style="display:none;"></div>
+  </div>
+  <footer>
+    Open Source Device Dashboard.<br>
+    <em>Contact: <a href="mailto:atkasper@umich.edu">atkasper@umich.edu</a></em>
+  </footer>
+  <script>
+    let deviceData = {};
+    let lanes = {};
+    let activeLane = null;
+
+    function groupByLane(devices) {
+      const lanes = {};
+      Object.entries(devices).forEach(([ip, info]) => {
+        const laneKey = info.lane;
+        if (!lanes[laneKey]) lanes[laneKey] = [];
+        lanes[laneKey].push({ ...info, ip });
+      });
+      return lanes;
+    }
+
+    function renderTabs() {
+      const laneTabs = document.getElementById('laneTabs');
+      laneTabs.innerHTML = '';
+
+      // Lane tabs
+      Object.keys(lanes).sort().forEach(lane => {
+        const btn = document.createElement('button');
+        btn.className = 'device-tab-btn' + (lane === activeLane ? ' active' : '');
+        btn.textContent = 'Lane ' + lane;
+        btn.onclick = () => { 
+          activeLane = lane; 
+          renderTabs(); 
+          renderContent(); 
+          document.getElementById('manageContent').style.display = 'none';
+          document.getElementById('laneContent').style.display = '';
+        };
+        laneTabs.appendChild(btn);
+      });
+
+      // How To tab
+      const howToBtn = document.createElement('button');
+      howToBtn.className = 'device-tab-btn' + (activeLane === 'howto' ? ' active' : '');
+      howToBtn.textContent = 'How To';
+      howToBtn.onclick = () => {
+        activeLane = 'howto';
+        renderTabs();
+        renderHowTo();
+        document.getElementById('manageContent').style.display = 'none';
+        document.getElementById('laneContent').style.display = '';
+      };
+      laneTabs.appendChild(howToBtn);
+
+      // Manage Devices tab
+      const manageBtn = document.createElement('button');
+      manageBtn.className = 'device-tab-btn' + (activeLane === 'manage' ? ' active' : '');
+      manageBtn.textContent = 'Manage Devices (WIP)';
+      manageBtn.onclick = () => {
+        activeLane = 'manage';
+        renderTabs();
+        renderManage();
+        document.getElementById('manageContent').style.display = '';
+        document.getElementById('laneContent').style.display = 'none';
+      };
+      laneTabs.appendChild(manageBtn);
+    }
+
+    function renderContent() {
+      const content = document.getElementById('laneContent');
+      if (!activeLane || !lanes[activeLane]) {
+        content.innerHTML = '<div>No devices in this lane.</div>';
+        return;
+      }
+      const sortedDevices = lanes[activeLane].slice().sort((a, b) => {
+        if (!a.name) return 1;
+        if (!b.name) return -1;
+        return a.name.localeCompare(b.name);
+      });
+      const rows = sortedDevices.map(device => `
+        <tr>
+          <td>
+            <a class="device-link" href="http://${device.ip}" target="_blank" rel="noopener">
+              ${device.name || device.ip}
+            </a>
+          </td>
+          <td>${device.ip}</td>
+          <td><span class="device-status-${device.status}">${device.status}</span></td>
+        </tr>
+      `).join('');
+      content.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Device Name</th>
+              <th>IP Address</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `;
+    }
+
+    function renderHowTo() {
+      const content = document.getElementById('laneContent');
+      fetch('howto.html')
+        .then(res => res.text())
+        .then(html => {
+          content.innerHTML = html;
+        })
+        .catch(err => {
+          content.innerHTML = '<div style="color:red;">Could not load How To section.</div>';
+        });
+    }
+
+    // --- Manage Devices Logic ---
+function loadDevices() {
+  fetch('/status')
+    .then(res => res.json())
+    .then(devices => {
+      const tbody = document.querySelector('#deviceTable tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      Object.entries(devices).forEach(([ip, info]) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${ip}</td>
+          <td>${info.name || ''}</td>
+          <td>${info.lane || ''}</td>
+          <td>${info.status || ''}</td>
+          <td><button data-ip="${ip}" class="remove-btn">Remove</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+      document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.onclick = async function() {
+          if (confirm('Remove device ' + btn.dataset.ip + '?')) {
+            await fetch('/api/devices/' + encodeURIComponent(btn.dataset.ip), { method: 'DELETE' });
+            loadDevices();
+          }
+        };
+      });
+    });
+}
+
+function addDeviceHandler(e) {
+  e.preventDefault();
+  const ip = document.getElementById('deviceIp').value;
+  const name = document.getElementById('deviceName').value;
+  const lane = document.getElementById('deviceLane').value;
+  fetch('/api/devices', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ip, info: {name, lane}})
+  }).then(() => {
+    alert('Device added!');
+    document.getElementById('addDeviceForm').reset();
+    loadDevices();
+  });
+}
+
+function renderManage() {
+  const manageContent = document.getElementById('manageContent');
+  fetch('manage.html')
+    .then(res => res.text())
+    .then(html => {
+      manageContent.innerHTML = html;
+      // Wait for DOM to update, then attach handlers
+      setTimeout(() => {
+        loadDevices();
+        const form = document.getElementById('addDeviceForm');
+        if (form) form.onsubmit = addDeviceHandler;
+      }, 0);
+    })
+    .catch(err => {
+      manageContent.innerHTML = '<div style="color:red;">Could not load Manage Devices section.</div>';
+    });
+}
+    // --- End Manage Devices Logic ---
+
+    function fetchStatus() {
+      fetch('/status')
+        .then(res => {
+          if (!res.ok) throw new Error('Network response was not ok');
+          return res.json();
+        })
+        .then(data => {
+          deviceData = data;
+          lanes = groupByLane(deviceData);
+          // If no activeLane or it's not valid, default to first lane
+          if (!activeLane || (activeLane !== 'howto' && activeLane !== 'manage' && !lanes[activeLane])) {
+            activeLane = Object.keys(lanes)[0];
+          }
+          renderTabs();
+          if (activeLane === 'howto' || activeLane === 'manage') {
+            // Do nothing! Don't update these tabs on interval.
+          } else {
+            renderContent();
+          }
+        })
+        .catch(err => {
+          document.getElementById('laneContent').innerHTML =
+            '<div style="color:red;">Error fetching device status: ' + err + '</div>';
+        });
+    }
+
+    fetchStatus();
+    setInterval(fetchStatus, 5000);
+  </script>
+</body>
+</html>

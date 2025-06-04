@@ -1,0 +1,110 @@
+{
+  "192.168.153.3": {
+    "name": "Windows Internet Information Services",
+    "lane": "1&2"
+  },
+  "192.168.153.7": {
+    "name": "Murr Elektronik Cube20 BN-E/IP DI8 Art.-No. 56005",
+    "lane": "1&2"
+  },
+  "192.168.153.6": {
+    "name": "Cube20 BN-E/IP DI8 Art.-No. 56005",
+    "lane": "1&2"
+  },
+  "192.168.153.5": {
+    "name": "Viewtron Cameras",
+    "lane": "1&2"
+  },
+  "192.168.153.31": {
+    "name": "IO-Link Master 8 Port Ethernet/IP",
+    "lane": "1&2"
+  },
+  "192.168.153.30": {
+    "name": "IO-Link Master 8 Port Ethernet/IP",
+    "lane": "1&2"
+  },
+  "192.168.153.2": {
+    "name": "Allen-Bradley 1769-L33ER/A LOGIX5333ER Rockwell Automation",
+    "lane": "1&2"
+  },
+  "192.168.153.157": {
+    "name": "COGNEX Edge Intelligence",
+    "lane": "1&2"
+  },
+  "192.168.153.130": {
+    "name": "IO-Link Master 8 Port Ethernet/IP",
+    "lane": "1&2"
+  },
+  "192.168.153.111": {
+    "name": "PickOne Assistant",
+    "lane": "1&2"
+  },
+  "192.168.153.110": {
+    "name": "HMI iPendant",
+    "lane": "1&2"
+  },
+  "192.168.153.11": {
+    "name": "PickOne Assistant",
+    "lane": "1&2"
+  },
+  "192.168.153.107": {
+    "name": "Murr Elektronik Cube20 BN-E/IP DI8 Art.-No. 56005",
+    "lane": "1&2"
+  },
+  "192.168.153.10": {
+    "name": "HMI iPendant",
+    "lane": "1&2"
+  },
+  "192.168.155.3": {
+    "name": "Windows Internet Information Services",
+    "lane": "3&4"
+  },
+  "192.168.155.7": {
+    "name": "Murr Elektronik Cube20 BN-E/IP DI8 Art.-No. 56005",
+    "lane": "3&4"
+  },
+  "192.168.155.57": {
+    "name": "COGNEX Edge Intelligence",
+    "lane": "3&4"
+  },
+  "192.168.155.5": {
+    "name": "Viewtron Cameras",
+    "lane": "3&4"
+  },
+  "192.168.155.31": {
+    "name": "IO-Link Master 8 Port Ethernet/IP",
+    "lane": "3&4"
+  },
+  "192.168.155.30": {
+    "name": "IO-Link Master 8 Port Ethernet/IP",
+    "lane": "3&4"
+  },
+  "192.168.155.2": {
+    "name": "Allen-Bradley 1769-L33ER/A LOGIX5333ER Rockwell Automation",
+    "lane": "3&4"
+  },
+  "192.168.155.157": {
+    "name": "COGNEX Edge Intelligence",
+    "lane": "3&4"
+  },
+  "192.168.155.131": {
+    "name": "IO-Link Master 8 Port Ethernet/IP",
+    "lane": "3&4"
+  },
+  "192.168.155.130": {
+    "name": "IO-Link Master 8 Port Ethernet/IP",
+    "lane": "3&4"
+  },
+  "192.168.155.110": {
+    "name": "HMI iPendant",
+    "lane": "3&4"
+  },
+  "192.168.155.107": {
+    "name": "Cube20 BN-E/IP DI8 Art.-No. 56005",
+    "lane": "3&4"
+  },
+  "192.168.155.10": {
+    "name": "HMI iPendant",
+    "lane": "3&4"
+  }
+}

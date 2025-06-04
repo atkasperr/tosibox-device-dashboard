@@ -1,0 +1,28 @@
+http://192.168.153.3/ Windows Internet Information Services 
+http://192.168.153.7/ Murr Elektronik Cube20 BN-E/IP DI8 Art.-No. 56005
+http://192.168.153.6/ Cube20 BN-E/IP DI8 Art.-No. 56005 
+http://192.169.153.57 COGNEX Edge Intelligence 
+http://192.168.153.5/ Viewtron Cameras 
+http://192.168.153.31/ IO-Link Master 8 Port Ethernet/IP
+http://192.168.153.30/ IO-Link Master 8 Port Ethernet/IP
+http://192.168.153.2/ Allen-Bradley 1769-L33ER/A LOGIX5333ER Rockwell Automation 
+http://192.168.153.157 COGNEX Edge Intelligence
+http://192.168.153.130/ IO-Link Master 8 Port Ethernet/IP
+https://192.168.153.111/ PickOne Assistant 
+http://192.168.153.110/ HMI iPendant 
+https://192.168.153.11/ PickOne Assistant 
+http://192.168.153.107/ Murr Elektronik Cube20 BN-E/IP DI8 Art.-No. 56005
+http://192.168.153.10/ HMI iPendant
+http://192.168.155.3/ Windows Internet Information Services 
+http://192.168.155.7/ Murr Elektronik Cube20 BN-E/IP DI8 Art.-No. 56005
+http://192.168.155.57/ COGNEX Edge Intelligence
+http://192.168.155.5/ Viewtron Cameras
+http://192.168.155.31/ IO-Link Master 8 Port Ethernet/IP
+http://192.168.155.30/ IO-Link Master 8 Port Ethernet/IP
+http://192.168.155.2/ Allen-Bradley 1769-L33ER/A LOGIX5333ER Rockwell Automation
+http://192.168.155.157/ COGNEX Edge Intelligence 
+http://192.168.155.131/ IO-Link Master 8 Port Ethernet/IP
+http://192.168.155.130/ IO-Link Master 8 Port Ethernet/IP
+http://192.168.155.110/ HMI iPendant
+http://192.168.155.107/ Cube20 BN-E/IP DI8 Art.-No. 56005 
+http://192.168.155.10/ HMI iPendant
