@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+*.egg
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Compiled files
+*.exe
+*.dll
+*.so
+*.out
+
+# Backup files
+*~
+*.bak
+*.swp
+
+# Data that should not be versioned
+/Data/ips.txt
+/Data/device_map.json.bak
+
+# Windows batch/PowerShell output
+*.bat~
+*.ps1~
+
+# Ignore server runtime files
+instance/
+*.db
+*.sqlite3
+
+# Ignore browser cache
+.cache/
